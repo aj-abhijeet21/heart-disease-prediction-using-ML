@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<title>Heart Report</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<body class="w3-light-grey">
+ <div class="w3-bar w3-border w3-black w3-xlarge">
+  <a href="index.php" class="w3-bar-item w3-button">Home</a>
+  <a href="contact.html" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-red">Contact Us</a>
+  <a href="about.html" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-red">About Us</a>
+  <a href="logout.php" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-red w3-right">Logout</a>
+</div> 
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+     <div class="w3-white w3-text-grey w3-card-4">
+        {% if gender == "Male" %}
+        <div class="w3-display-container">
+  <img src="/static/male.jpg" class="w3-round-small" alt="avatar" style="width:100%">
+
+        {% else %}
+                <div class="w3-display-container">
+  <img src="/static/female.jpg" class="w3-round-small" alt="avatar" style="width:100%">
+        {% endif %}
+      
+          <div class="w3-display-bottomleft w3-container w3-text-black">
+            <h2> {{ name }} </h2>
+          </div>
+        </div>
+        <div class="w3-container">
+          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Patient</p>
+          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{ <address> </address> }}</p>
+          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i> {{ email }} </p>
+          <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i> {{ phone }} </p>
+          <hr>
+
+          <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-teal"></i>General Details:</b></p>
+          <p><b>Age: {{ age }}</b></p>
+          
+          <p><b>Gender: {{ gender }}</b></p>
+         
+          <p><b>Blood group: {{ bloodgroup }}</b></p>
+          
+          <br>
+          
+          <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Medical Details:</b></p>
+          <p>Blood Pressure</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:90%">{{ trestbps }}</div>
+          </div>
+          <p>Cholestrol</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:80%">
+              <div class="w3-center w3-text-white">{{ chol }}</div>
+            </div>
+          </div>
+          <p>Fasting Blood Sugar</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:75%">{{ fbs }}</div>
+          </div>
+          <p>Heart Rate</p>
+          <div class="w3-light-grey w3-round-xlarge w3-small">
+            <div class="w3-container w3-center w3-round-xlarge w3-teal" style="width:50%">{{ thalach }}</div>
+          </div>
+          <br>
+
+          
+        </div>
+      </div><br>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Heart Report</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b></b></h5>
+          <h6 class="w3-text-teal"><span class="w3-tag w3-teal w3-round">{{ name }}</span></h6>
+          <p>The following heart report is generated automatically on the basis of medical details you preovided earlier. Please read carefully and print this report for further medical treatment.</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Maximum Heart Rate: {{ thalach }}</b></h5>
+          <p>It is recommended that you exercise within 55 to 85 percent of your maximum heart rate for at least 20 to 30 minutes to get the best results from aerobic exercise. The MHR (roughly calculated as 220 - your age) is the upper limit of what your cardiovascular system can handle during physical activity.</p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Resting Blood Pressure: {{ trestbps }}</b></h5>
+          
+          <p>Follow a healthy lifestyle to keep it at this level. More than 120 over 80 and less than 140 over 90 (120/80-140/90). You have a normal blood pressure reading but it is a little higher than it should be, and you should try to lower it. </p><hr>
+        </div>
+        
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Fasting Blood Sugar: {{ fbs }}</b></h5>
+          
+          <p>For the majority of healthy individuals, normal blood sugar levels are: Between 4.0 to 5.4 mmol/L (72 to 99 mg/dL) when fasting. Up to 7.8 mmol/L (140 mg/dL) 2 hours after eating.</p><hr>
+        </div>
+        
+        
+        
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Predicted disease type: {{ predicted }}</b></h5>
+          
+          <p>Coronary artery disease is the narrowing or blockage of the coronary arteries, usually caused by atherosclerosis. Atherosclerosis (sometimes called "hardening" or "clogging" of the arteries) is the buildup of cholesterol and fatty deposits (called plaques) on the inner walls of the arteries. These plaques can restrict blood flow to the heart muscle by physically clogging the artery or by causing abnormal artery tone and function.</p><br>
+        </div>
+        
+      </div>
+      
+      
+
+      <div class="w3-container w3-card w3-white">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Precautions to be taken:</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Eat a healthy, balanced diet:</b></h5>
+          <p>A low-fat, high-fibre diet is recommended, which should include plenty of fresh fruit and vegetables (five portions a day) and whole grains.
+
+You should limit the amount of salt you eat to no more than 6g (0.2oz) a day as too much salt will increase your blood pressure. 6g of salt is about one teaspoonful.
+
+There are two types of fat: saturated and unsaturated. You should avoid food containing saturated fats, because these will increase the levels of bad cholesterol in your blood. </p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Be more physically active:</b></h5>
+          <p>Combining a healthy diet with regular exercise is the best way of maintaining a healthy weight. Having a healthy weight reduces your chances of developing high blood pressure.
+
+Regular exercise will make your heart and blood circulatory system more efficient, lower your cholesterol level, and also keep your blood pressure at a healthy level. </p>
+          <hr>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Managing Stress:</b></h5>
+          <p>IMore research is needed to determine how stress contributes to heart disease — the leading killer of Americans. But stress may affect behaviors and factors that increase heart disease risk: high blood pressure and cholesterol levels, smoking, physical inactivity and overeating. Some people may choose to drink too much alcohol or smoke cigarettes to “manage” their chronic stress, however these habits can increase blood pressure and may damage heart valves. Find ways to help manage your stress, such as through relaxation activities, meditation, physical activity, and spending time with family and friends.</p><hr>
+        </div>
+        
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Avoiding tobacco:</b></h5>
+          <p>Chewing tobacco is a common type of smokeless tobacco. Smokeless tobacco products consist of tobacco or a tobacco blend that's chewed, sucked on or sniffed, rather than smoked. Nicotine is absorbed through the soft tissues of the mouth and in some cases swallowed.If you chew, quit. Ask your doctor about resources to help you quit tobacco chewing. Joining a support group may be helpful.
+
+</p><br>
+        </div>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Keep to a healthy weight:</b></h5>
+          <p>Your GP or practice nurse can tell you what your ideal weight is in relation to your height and build. Alternatively, find out what your body mass index (BMI) is by using our BMI calculator.
+
+
+</p><br>
+        </div>
+        
+        
+      </div>
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+
+<footer class="w3-container w3-teal w3-center w3-margin-top">
+<input type="button" class="w3-btn w3-black" value="Print this Report" onclick="printReport()">
+</footer>
+<script>
+function printReport() {
+  window.print();
+}
+
+</body>
+</html>
